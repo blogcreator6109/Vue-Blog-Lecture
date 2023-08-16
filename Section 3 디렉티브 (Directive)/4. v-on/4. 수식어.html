@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <style>
+      .red,
+      .yellow,
+      .green {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: lightcoral;
+        transition: all 0.3s;
+      }
+      .active {
+        border-radius: 40%;
+      }
+      .red {
+        width: 300px;
+        height: 300px;
+      }
+      .yellow {
+        background-color: lightgoldenrodyellow;
+        width: 200px;
+        height: 200px;
+      }
+      .green {
+        background-color: lightgreen;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import {
+        createApp,
+        reactive,
+      } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+
+      const root = {
+        template: `
+          <div class="red" :class="classes.red" @click="onClick('red')">
+            <div class="yellow" :class="classes.yellow" @click="onClick('yellow')">
+              <div class="green" :class="classes.green" @click="onClick('green')">
+                <h2> 안녕하세요 </h2>
+                <p> 코드를 작성할 수 있는 프로그램 VSCode! </p>
+              </div>
+            </div>
+          </div>
+        `,
+        setup() {
+          const classes = reactive({
+            red: { active: false },
+            yellow: { active: false },
+            green: { active: false },
+          });
+          const processes = [];
+          let isProcessing = false;
+          return {
+            classes,
+            onClick(prop) {
+              // 이벤트 진행중인게 없다면
+              if (!isProcessing) {
+                isProcessing = true;
+                // active 클래스 활성화
+                classes[prop].active = true;
+
+                // 일정 시간 지나면 active 클래스 없애기
+                const timer = setTimeout(() => {
+                  isProcessing = false;
+                  classes[prop].active = false;
+
+                  // 더 이상 할게 없다면 실행하지 않기
+                  if (processes.length > 0) {
+                    this.onClick(processes.pop());
+                  }
+                }, 300);
+              } else {
+                // 있다면 일단 프로세스에 넣어놓기
+                processes.unshift(prop);
+              }
+            },
+          };
+        },
+      };
+      const app = createApp(root);
+      app.mount("#app");
+    </script>
+  </body>
+</html>

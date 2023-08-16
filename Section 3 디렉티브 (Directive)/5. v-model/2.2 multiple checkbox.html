@@ -1,0 +1,41 @@
+<html>
+  <head></head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import {
+        createApp,
+        reactive,
+      } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+      const root = {
+        template: `
+          <input
+            type="checkbox"
+            value="릴파"
+            v-model="checkboxList.value"
+          />
+          릴파
+          <input
+            type="checkbox"
+            value="아이네"
+            v-model="checkboxList.value"
+          />
+          아이네
+          <input
+            type="checkbox"
+            value="주르르"
+            v-model="checkboxList.value"
+          />
+          주르르
+        `,
+        setup() {
+          return {
+            checkboxList: reactive({ value: [] }),
+          };
+        },
+      };
+      const app = createApp(root);
+      app.mount("#app");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+  <head></head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import {
+        createApp,
+        reactive,
+      } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+
+      const root = {
+        template: `
+          <div
+            style="
+              height: 500px;
+              background-color:lightblue;
+            "
+            @click="setPoint"
+          >
+          </div>
+          <div> x: {{ point.x }}, y: {{ point.y }}</div>
+        `,
+        setup() {
+          const point = reactive({ x: 0, y: 0 });
+          return {
+            point,
+            setPoint(event) {
+              point.x = event.x;
+              point.y = event.y;
+            },
+          };
+        },
+      };
+      const app = createApp(root);
+      app.mount("#app");
+    </script>
+  </body>
+</html>
