@@ -6,11 +6,12 @@
       import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
       const root = {
         template: `
-        <p v-bind:class="myClass"></p>
+          <h1 v-bind:[attrName]="attrVal"></h1>
         `,
         setup() {
           return {
-            myClass: "active",
+            attrName: "id",
+            attrVal: "bye",
           };
         },
       };

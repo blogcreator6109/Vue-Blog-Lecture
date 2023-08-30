@@ -6,11 +6,11 @@
       import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
       const root = {
         template: `
-        <div v-for="item of array">{{ item }}</div>
+          <h1 v-bind:class="myClass"></h1>
         `,
         setup() {
           return {
-            array: [1, 2, 3, 4, 5],
+            myClass: "hello",
           };
         },
       };

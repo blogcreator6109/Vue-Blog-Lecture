@@ -5,7 +5,16 @@
     <script type="module">
       import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
       const root = {
-        template: "<h1>안녕하세요</h1>",
+        template: `
+        <h1 v-bind:class="classValue"></h1>
+        `,
+        setup() {
+          const classValue = "Hello";
+
+          return {
+            classValue,
+          };
+        },
       };
       const app = createApp(root);
       app.mount("#app");

@@ -1,0 +1,42 @@
+<html>
+  <head></head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+      const root = {
+        template: `
+        <h1>{{ 10000 }}</h1>
+        <h1>{{ "안녕하셔유" }}</h1>
+        <h1>{{ { a: 1, b: 2 } }}</h1>
+        <h1>{{ [ 1, 2, 3, 4, 5] }}</h1>
+        <h1>{{ function() { console.log("hello") } }}</h1>
+
+        <h1>{{ myGreet }}</h1>
+        `,
+        /* Javascript 표현식만 사용 가능
+          아래의 것들은 안됨
+
+          <h1>{{ const a = 1; }}</h1>
+          <h1>{{ 
+            for (let i of [1,2,3]){
+              console.log(i);
+            }
+          }}</h1>
+        */
+        setup() {
+          const greet = "Hello";
+          const sayHello = function () {
+            console.log("Hello");
+          };
+
+          return {
+            myGreet: greet,
+          };
+        },
+      };
+      const app = createApp(root);
+      app.mount("#app");
+    </script>
+  </body>
+</html>
