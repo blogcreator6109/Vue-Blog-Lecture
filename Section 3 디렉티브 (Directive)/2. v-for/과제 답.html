@@ -12,7 +12,8 @@
         template: `
           <nav>
             <a 
-              v-for="item of menu" 
+              v-for="item of menu"
+              :key="item"
               :href="item.toLowerCase()"
             >
               {{ item }}
