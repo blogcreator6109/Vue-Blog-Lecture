@@ -4,17 +4,23 @@
     <div id="app"></div>
     <script type="module">
       import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+
       const root = {
         template: `
-          <h1 v-bind:[attrName]="attrVal"></h1>
+          <input 
+            :autofocus="isAutoFocus" 
+            :disabled="isDisabled"
+            :readonly="isReadonly" />
         `,
         setup() {
           return {
-            attrName: "id",
-            attrVal: "bye",
+            isAutoFocus: false,
+            isDisabled: true,
+            isReadonly: true,
           };
         },
       };
+
       const app = createApp(root);
       app.mount("#app");
     </script>
