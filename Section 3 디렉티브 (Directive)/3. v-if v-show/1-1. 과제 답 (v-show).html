@@ -7,17 +7,14 @@
       const root = {
         template: `
           <nav>
-            <template
+            <a
+              v-show="item.length > 3"
               v-for="item of menu"
               :key="item"
+              :href="item.toLowerCase()"
             >
-              <a
-                v-if="item.length > 3"
-                :href="item.toLowerCase()"
-              >
-                {{ item }}
-              </a>
-            </template>
+              {{ item }}
+            </a>
           </nav>
         `,
         setup() {

@@ -1,0 +1,32 @@
+<html>
+  <head></head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import {
+        createApp,
+        reactive,
+      } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+
+      const root = {
+        template: `
+          <h1 v-if="number == 100"> A </h1>
+          <h1 v-else-if="number > 90"> B </h1>
+          <h1>방해물</h1>
+          <h1 v-else-if="number > 80"> C </h1>
+          <h1 v-else-if="number > 70"> D </h1>
+          <h1 v-else> F </h1>
+        `,
+        setup() {
+          return {
+            number: 50,
+          };
+        },
+      };
+
+      const app = createApp(root);
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>
