@@ -10,23 +10,14 @@
 
       const root = {
         template: `
-          <div
-            style="
-              height: 500px;
-              background-color:lightblue;
-            "
-            @click="setPoint($event);"
-          >
-          </div>
-          <h2> x: {{ point.x }}, y: {{ point.y }}</h2>
+          <button v-on:click="onClick">
+            버튼
+          </button>
         `,
         setup() {
-          const point = reactive({ x: 0, y: 0 });
           return {
-            point,
-            setPoint(event) {
-              point.x = event.x;
-              point.y = event.y;
+            onClick() {
+              console.log("안녕하세요");
             },
           };
         },

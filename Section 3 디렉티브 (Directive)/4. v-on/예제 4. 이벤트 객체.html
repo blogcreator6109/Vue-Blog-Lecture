@@ -1,0 +1,29 @@
+<html>
+  <head></head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import {
+        createApp,
+        reactive,
+      } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+
+      const root = {
+        template: `
+          <button @click="onClick($event)">
+            버튼
+          </button>
+        `,
+        setup() {
+          return {
+            onClick(event) {
+              console.log(event);
+            },
+          };
+        },
+      };
+      const app = createApp(root);
+      app.mount("#app");
+    </script>
+  </body>
+</html>
