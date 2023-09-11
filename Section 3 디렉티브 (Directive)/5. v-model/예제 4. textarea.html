@@ -9,19 +9,13 @@
       } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
       const root = {
         template: `
-          <input
-            type="text"
-            :value="text.value"
-            @input="text.value = $event.target.value;"
-          />
-          <input
-            type="text"
-            v-model="text.value"
-          />
+          <textarea v-model="text.value" />
         `,
         setup() {
           return {
-            text: reactive({ value: "소가 불에 타면?" }),
+            text: reactive({
+              value: `있을 수 있는\n없을 수도 있는\n섬 이름은?`,
+            }),
           };
         },
       };

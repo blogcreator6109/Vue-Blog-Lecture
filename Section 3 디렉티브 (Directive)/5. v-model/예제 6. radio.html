@@ -1,0 +1,39 @@
+<html>
+  <head></head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import {
+        createApp,
+        reactive,
+      } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+      const root = {
+        template: `
+          <label>
+            <input 
+              type="radio" 
+              value="아이네"
+              v-model="selected.value" 
+            />
+            아이네
+          </label>
+          <label>
+            <input 
+              type="radio" 
+              value="릴파"
+              v-model="selected.value" 
+            />
+            릴파
+          </label>
+        `,
+        setup() {
+          return {
+            selected: reactive({ value: "릴파" }),
+          };
+        },
+      };
+      const app = createApp(root);
+      app.mount("#app");
+    </script>
+  </body>
+</html>

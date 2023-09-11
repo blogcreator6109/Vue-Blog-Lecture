@@ -9,22 +9,16 @@
       } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
       const root = {
         template: `
-          <input
-            type="checkbox"
-            :checked="checkbox.value"
-            @change="checkbox.value = $event.target.checked;"
-          />
-          체크박스
-          <input
-            type="checkbox"
-            v-model="checkbox.value"
-          />
-
-
+          <select v-model="selected.value">
+            <option disabled value="">선택하시오</option>
+            <option value="A입니다">A</option>
+            <option value="B입니다">B</option>
+            <option value="C입니다">C</option>
+          </select>
         `,
         setup() {
           return {
-            checkbox: reactive({ value: false }),
+            selected: reactive({ value: "" }),
           };
         },
       };
