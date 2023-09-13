@@ -1,0 +1,57 @@
+<html>
+  <head></head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import {
+        createApp,
+        reactive,
+        ref,
+      } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+      const root = {
+        template: `
+          <h2 v-for="p of people" :key="p.name">
+            {{ p.name }} {{ p.height }}
+          </h2>
+          <h2>{{ numTallPeople() }}</h2>
+          <h2>{{ numTallPeople() }}</h2>
+          <h2>{{ numTallPeople() }}</h2>
+          <h2>{{ numTallPeople() }}</h2>
+          <h2>{{ numTallPeople() }}</h2>
+          <input v-model="name" />
+          <input v-model.number="height" />
+          <button @click="addPerson">Add</button>
+        `,
+        setup() {
+          const people = reactive([
+            { name: "Ine", height: 158 },
+            { name: "Jing Burger", height: 161 },
+            { name: "Lilpha", height: 164 },
+          ]);
+
+          const numTallPeople = function () {
+            console.log("함수 실행");
+            return people.filter((p) => p.height >= 160).length;
+          };
+
+          const name = ref("");
+          const height = ref(null);
+          return {
+            people,
+            name,
+            height,
+            addPerson() {
+              people.push({
+                name: name.value,
+                height: height.value,
+              });
+            },
+            numTallPeople,
+          };
+        },
+      };
+      const app = createApp(root);
+      app.mount("#app");
+    </script>
+  </body>
+</html>
