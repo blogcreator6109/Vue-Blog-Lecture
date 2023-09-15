@@ -1,0 +1,38 @@
+<html>
+  <head></head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import {
+        createApp,
+        reactive,
+        ref,
+        watch,
+      } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+      const root = {
+        template: `
+          <input v-model.number="x" />
+          <input v-model.number="y" />
+        `,
+        setup() {
+          const x = ref(0);
+          const y = ref(0);
+
+          watch(
+            () => x.value * y.value,
+            () => {
+              console.log("두 값의 곱은,", x.value * y.value);
+            }
+          );
+
+          return {
+            x,
+            y,
+          };
+        },
+      };
+      const app = createApp(root);
+      app.mount("#app");
+    </script>
+  </body>
+</html>

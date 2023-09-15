@@ -1,0 +1,36 @@
+<html>
+  <head></head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import {
+        createApp,
+        reactive,
+        ref,
+        watch,
+      } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+
+      const root = {
+        template: `
+        <button @click="text='반응성!'">{{ text }}</button>
+        `,
+        setup() {
+          const text = ref("글자를 바꿔주세요");
+
+          watch(
+            text,
+            (newVal) => {
+              const h2 = document.querySelector("button");
+              h2.innerHTML = `<h2>watch 실행!</h2>`;
+            },
+            { flush: "post" }
+          );
+
+          return { text };
+        },
+      };
+      const app = createApp(root);
+      app.mount("#app");
+    </script>
+  </body>
+</html>

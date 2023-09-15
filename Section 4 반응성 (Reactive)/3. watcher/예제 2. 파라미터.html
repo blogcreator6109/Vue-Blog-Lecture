@@ -1,0 +1,33 @@
+<html>
+  <head></head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import {
+        createApp,
+        reactive,
+        ref,
+        watch,
+      } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+      const root = {
+        template: `
+          <input v-model.number="x" />
+        `,
+        setup() {
+          const x = ref(0);
+
+          watch(x, (newVal, oldVal) => {
+            console.log("새로운 값", newVal);
+            console.log("이전 값", oldVal);
+          });
+
+          return {
+            x,
+          };
+        },
+      };
+      const app = createApp(root);
+      app.mount("#app");
+    </script>
+  </body>
+</html>

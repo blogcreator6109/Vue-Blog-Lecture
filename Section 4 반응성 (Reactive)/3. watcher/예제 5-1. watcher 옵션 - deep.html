@@ -1,0 +1,39 @@
+<html>
+  <head></head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import {
+        createApp,
+        reactive,
+        ref,
+        watch,
+      } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+
+      const root = {
+        template: `
+        `,
+        setup() {
+          const people = reactive({
+            ine: {
+              info: {
+                height: 158,
+              },
+            },
+          });
+          watch(
+            () => people.ine,
+            (newVal) => {
+              console.log("변했습니다.", newVal);
+            },
+            { deep: true }
+          );
+
+          people.ine.info.height = 1;
+        },
+      };
+      const app = createApp(root);
+      app.mount("#app");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+  <head></head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import {
+        createApp,
+        reactive,
+        ref,
+        watch,
+      } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+
+      const root = {
+        template: `
+          <button @click="page++">{{ page }}</button>
+          <p>{{ data }} </p>
+        `,
+        setup() {
+          const page = ref(1);
+          const data = ref(null);
+
+          watch(
+            page,
+            () => {
+              fetch("https://jsonplaceholder.typicode.com/todos/" + page.value)
+                .then((response) => response.json())
+                .then((json) => (data.value = json));
+            }
+            // { immediate: true }
+          );
+
+          return {
+            page,
+            data,
+          };
+        },
+      };
+      const app = createApp(root);
+      app.mount("#app");
+    </script>
+  </body>
+</html>
