@@ -17,8 +17,9 @@
           const x = ref(0);
 
           watch(x, (newVal, oldVal) => {
-            console.log("새로운 값", newVal);
-            console.log("이전 값", oldVal);
+            console.log("변하기 전의 값", oldVal);
+            console.log("변한 후의 값", newVal);
+            console.log("---");
           });
 
           return {

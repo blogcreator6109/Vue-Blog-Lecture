@@ -23,13 +23,13 @@
           });
           watch(
             () => people.ine,
-            (newVal) => {
-              console.log("변했습니다.", newVal);
+            () => {
+              console.log("변했습니다.");
             },
             { deep: true }
           );
 
-          people.ine.info.height = 1;
+          people.ine.info.height++;
         },
       };
       const app = createApp(root);

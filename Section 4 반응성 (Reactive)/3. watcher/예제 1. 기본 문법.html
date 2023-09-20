@@ -17,7 +17,7 @@
           const x = ref(0);
 
           watch(x, () => {
-            console.log(`x가 변했죠~`);
+            console.log("x가 변했습니다", x.value);
           });
 
           return {
