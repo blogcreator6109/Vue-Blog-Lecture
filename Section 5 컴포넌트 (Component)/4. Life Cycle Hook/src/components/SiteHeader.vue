@@ -2,7 +2,7 @@
   <header>
     <img src="@/assets/logo.jpg" />
     <nav>
-      <a href="" v-for="item of menu" :key="item">
+      <a v-for="item of menu" :key="item">
         {{ item }}
       </a>
     </nav>
@@ -19,12 +19,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 img {
   width: 100px;
   height: 100px;
@@ -33,8 +34,9 @@ img {
 
 nav {
   margin-top: 20px;
-  width: 80%;
   background-color: #333;
+  color: white;
+  width: 80%;
   padding: 5px 10px;
   border-radius: 5px;
 }
@@ -42,7 +44,6 @@ nav {
 a {
   margin-right: 10px;
   font-weight: bold;
-  text-decoration: none;
-  color: white;
+  cursor: pointer;
 }
 </style>
