@@ -1,6 +1,7 @@
 <template>
   <SiteHeader />
   <SiteMain />
+  <SiteFooter :test="3" />
   <div class="my-loader" v-show="loading">
     <Loading />
   </div>
@@ -9,6 +10,7 @@
 <script setup>
 import SiteHeader from "./components/SiteHeader.vue";
 import SiteMain from "./components/SiteMain.vue";
+import SiteFooter from "./components/SiteFooter.vue";
 import Loading from "@/components/Loading.vue";
 import { onMounted, ref } from "vue";
 
