@@ -1,7 +1,7 @@
 <template>
   <SiteHeader />
   <SiteMain />
-  <SiteFooter />
+  <SiteFooter :test="3" />
   <div class="my-loader" v-show="loading">
     <Loading />
   </div>

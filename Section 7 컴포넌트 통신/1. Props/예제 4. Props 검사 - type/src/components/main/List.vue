@@ -20,7 +20,6 @@ const list = ref([]);
 
 getPageTable("a0521cd6f36a4c73b9af3b35aa00c4cc").then(
   (value) => {
-    console.log(value);
     list.value = value;
   }
 );

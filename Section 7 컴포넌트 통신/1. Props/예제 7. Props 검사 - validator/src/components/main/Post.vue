@@ -10,14 +10,8 @@ import {
 import { ref } from "vue";
 
 const blockMap = ref(null);
-const props = defineProps({
-  id: {
-    type: String,
-    required: true,
-  },
-});
 
-getPageBlocks(props.id).then(
+getPageBlocks("91caab9a9bc945309802175ab9f7d32d").then(
   (value) => (blockMap.value = value)
 );
 </script>

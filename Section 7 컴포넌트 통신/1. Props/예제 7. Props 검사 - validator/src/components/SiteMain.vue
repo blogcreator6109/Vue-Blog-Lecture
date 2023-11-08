@@ -1,8 +1,6 @@
 <template>
   <main>
-    <!-- <component :is="comp[name]" /> -->
-    <List v-if="name == 'List'" />
-    <Post v-if="name == 'Post'" :id="id" />
+    <component :is="comp[name]" />
     <button @click="name = 'List'">List</button>
     <button @click="name = 'Post'">Post</button>
   </main>
@@ -12,8 +10,6 @@
 import { ref, defineAsyncComponent } from "vue";
 
 const name = ref("");
-
-const id = "91caab9a9bc945309802175ab9f7d32d";
 
 const List = defineAsyncComponent(() =>
   import("@/components/main/List.vue")
