@@ -2,7 +2,7 @@
   <header>
     <img src="@/assets/logo.jpg" ref="logo" />
 
-    <Search ref="search" />
+    <Search />
 
     <nav>
       <a

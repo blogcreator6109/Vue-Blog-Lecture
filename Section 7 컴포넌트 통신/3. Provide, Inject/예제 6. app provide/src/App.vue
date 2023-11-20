@@ -16,12 +16,7 @@ import SiteHeader from "./components/SiteHeader.vue";
 import SiteMain from "./components/SiteMain.vue";
 import SiteFooter from "./components/SiteFooter.vue";
 import Loading from "@/components/Loading.vue";
-import {
-  onMounted,
-  ref,
-  provide,
-  readonly,
-} from "vue";
+import { onMounted, ref, provide } from "vue";
 
 const counter = readonly(ref(0));
 const addCounter = function () {
