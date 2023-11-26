@@ -2,7 +2,7 @@
   <header>
     <img src="@/assets/logo.jpg" ref="logo" />
 
-    <Search />
+    <Search ref="search" />
 
     <nav>
       <a v-for="item of menu" :key="item">

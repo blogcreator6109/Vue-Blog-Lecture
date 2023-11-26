@@ -21,10 +21,3 @@ const Post = defineAsyncComponent(() =>
 
 const comp = { List, Post };
 </script>
-
-<style>
-main {
-  width: 80%;
-  margin: 10px auto;
-}
-</style>

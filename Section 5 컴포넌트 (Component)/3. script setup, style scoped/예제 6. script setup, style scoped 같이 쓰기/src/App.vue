@@ -17,9 +17,7 @@ const counter = ref(0);
 
 <script>
 export default {
-  inheritAttrs: false, // 3.3 버전부터는 
-                       // defineOptions({ inheritAttrs: false })
-                       // 로 대체 가능
+  inheritAttrs: false, // 아직 script setup에는 구현되지 않은 것.
 };
 </script>
 
